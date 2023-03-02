@@ -1,0 +1,35 @@
+.card {
+  background-color: #675C55;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  padding: 0.5rem 1rem;
+  margin-right: 2rem;
+  outline: none;
+  border: 2px solid black;
+}
+
+.input:focus {
+  border: 2px solid #fabd2f;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .input {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 0;
+  }
+}

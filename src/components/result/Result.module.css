@@ -1,0 +1,76 @@
+.card {
+  background-color: #675C55;
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 2rem;
+  margin-bottom: 1rem;
+}
+
+.header .title-wrapper .container {
+  display: flex;
+  gap: 1rem;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.header .ratings-wrapper {
+  text-align: right;
+}
+
+.ratings-wrapper .rating h3 {
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.ratings-wrapper .rating i {
+  color: gold;
+}
+
+.main .plot {
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+.main .genres {
+  margin: 1rem 2rem 2rem 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.genres .genre {
+  background-color: #FE8019;
+  color: #3C3836;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+  border: 1px solid white;
+}
+
+@media screen and (max-width: 1020px) {
+  .header {
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .header .title-wrapper .container {
+    justify-content: center;
+  }
+
+  .header .ratings-wrapper {
+    text-align: center;
+  }
+
+  .main .plot {
+    flex-direction: column;
+  }
+}
