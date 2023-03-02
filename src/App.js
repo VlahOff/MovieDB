@@ -11,7 +11,7 @@ function App() {
   const [input, setInput] = useState('');
 
   useEffect(() => {
-    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_OMDB_KEY}&r=json&t=${input}&plot=full`)
+    fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_OMDB_KEY}&r=json&t=${input}&plot=full`)
       .then(res => res.json())
       .then(data => setResult(data));
   }, [input]);
