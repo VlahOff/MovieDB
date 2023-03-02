@@ -11,24 +11,28 @@ const SearchBar = (props) => {
     setInput(event.target.value);
   };
 
-  const onSubmitHandler = () => {
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+
     props.submitInput(input);
     setInput('');
   };
 
   return (
     <Card className={styles.card}>
-      <input
-        onChange={onInputHandler}
-        value={input}
-        className={styles.input}
-        type="search"
-        placeholder='Search for your favorite movie...'
-      />
-      <Button
-        onClick={onSubmitHandler}
-        className={styles.btn}
-      >Search</Button>
+      <form onSubmit={onSubmitHandler}>
+        <input
+          onInput={onInputHandler}
+          value={input}
+          className={styles.input}
+          type="search"
+          placeholder='Search for your favorite movie...'
+        />
+        <Button
+          onClick={onSubmitHandler}
+          className={styles.btn}
+        >Search</Button>
+      </form>
     </Card>
   );
 };
