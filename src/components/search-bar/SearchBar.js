@@ -20,7 +20,10 @@ const SearchBar = (props) => {
 
   return (
     <Card className={styles.card}>
-      <form onSubmit={onSubmitHandler}>
+      <form
+        className={styles.form}
+        onSubmit={onSubmitHandler}
+      >
         <input
           onInput={onInputHandler}
           value={input}
