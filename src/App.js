@@ -1,4 +1,6 @@
-import { Fragment, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import * as movieApi from './services/searchForMovie';
 
 import Result from './components/result/Result';
 import SearchBar from './components/search-bar/SearchBar';
@@ -7,13 +9,13 @@ import Card from './components/UI/Card';
 import styles from './App.module.css';
 
 function App() {
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState({ Response: 'False' });
   const [input, setInput] = useState('');
 
   useEffect(() => {
-    fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=${process.env.REACT_APP_OMDB_KEY}&r=json&t=${input}&plot=full`)
-      .then(res => res.json())
-      .then(data => setResult(data));
+    movieApi.getMovie(input)
+      .then(data => setResult(data))
+      .catch(err => console.log(err));
   }, [input]);
 
   const onSubmitHandler = (data) => {
@@ -21,20 +23,16 @@ function App() {
   };
 
   return (
-    <Fragment>
+    <>
       <Card className={styles.card} >
         <SearchBar
           submitInput={onSubmitHandler}
         />
-        {
-          result ?
-            <Result
-              {...result}
-            /> :
-            <p className={styles.warning}>Movie not found!</p>
-        }
+        {result.Response === 'True' ?
+          <Result {...result} /> :
+          <p className={styles.warning}>Movie not found!</p>}
       </Card>
-    </Fragment >
+    </ >
   );
 }
 
