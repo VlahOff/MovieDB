@@ -1,0 +1,40 @@
+.radio-inputs {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  padding: 0.9rem;
+  padding-bottom: 21px;
+  border-bottom: 2px solid white;
+}
+
+.radio-inputs:hover {
+  border-image: linear-gradient(to right, #db99c3, #af95c5);
+  border-image-slice: 1;
+}
+
+.radio-inputs .radio {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.radio-inputs .radio input {
+  display: none;
+}
+
+.radio-inputs .radio .name {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: none;
+  padding-top: 0.5rem;
+  color: rgb(160, 160, 160);
+  transition: all .15s ease-in-out;
+}
+
+.radio-inputs .radio input:checked+.name {
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+}

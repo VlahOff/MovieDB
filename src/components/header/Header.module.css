@@ -1,0 +1,50 @@
+.card {
+  margin: 120px auto;
+  width: 80%;
+  max-width: 1200px;
+}
+
+.form {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 2rem;
+}
+
+.search {
+  flex: 1 1 75%;
+}
+
+.year {
+  width: 120px;
+}
+
+.btn {
+  order: 5;
+}
+
+@media screen and (max-width: 1200px) {
+  .form {
+    flex-wrap: wrap;
+  }
+
+  .search {
+    order: 0;
+  }
+
+  .btn {
+    flex: 1 1 100%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .card {
+    margin: 18px auto;
+    width: 90%;
+  }
+
+  .form {
+    margin: 0
+  }
+}
