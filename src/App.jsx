@@ -8,15 +8,15 @@ import Result from './components/result/Result';
 import classes from './App.module.css';
 
 function App() {
-  const { isLoading } = useAppContext();
+	const { isLoading } = useAppContext();
 
-  return (
-    <>
-      {isLoading && <LoadingSpinner />}
-      <Header />
-      <Result />
-    </>
-  );
+	return (
+		<>
+			{isLoading && <LoadingSpinner />}
+			<Header />
+			<Result />
+		</>
+	);
 }
 
 export default App;
