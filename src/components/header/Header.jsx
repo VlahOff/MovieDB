@@ -8,29 +8,27 @@ import RadioButton from '../UI/option/RadioButton';
 
 import classes from './Header.module.css';
 
+const queryValidation = v => {
+	return v.trim().length > 1;
+};
+
+const yearValidation = v => {
+	return Number(v) > 1000;
+};
+
 const Header = () => {
 	const { getMovie } = useAppContext();
 
-	const {
-		formValues,
-		changeHandler,
-		setValues,
-		blurHandler,
-		isFormValid,
-		resetValues,
-	} = useForm({
-		query: '',
-		queryValid: null,
-		type: 'movie',
-		year: '',
-	});
+	const { formValues, changeHandler, setValues, isFormValid, resetValues } =
+		useForm({
+			query: '',
+			queryValid: null,
+			type: 'movie',
+			year: '',
+		});
 
 	const onOptionSelect = event => {
 		setValues(s => ({ ...s, type: event.target.value }));
-	};
-
-	const queryBlurHandler = event => {
-		blurHandler(event, v => v.trim().length > 1);
 	};
 
 	const onFormSubmit = event => {
@@ -54,8 +52,7 @@ const Header = () => {
 						id={'query'}
 						label={'Search...'}
 						type={'search'}
-						onChange={changeHandler}
-						onBlur={queryBlurHandler}
+						onChange={e => changeHandler(e, queryValidation)}
 						value={formValues.query}
 						error={formValues.queryValid}
 						errorMessage={'Please enter a title.'}
@@ -65,7 +62,7 @@ const Header = () => {
 						id={'year'}
 						label={'Year'}
 						type={'number'}
-						onChange={changeHandler}
+						onChange={e => changeHandler(e, yearValidation)}
 						value={formValues.year}
 					/>
 					<RadioButton
